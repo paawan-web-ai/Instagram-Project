@@ -40,7 +40,7 @@ async function registerController(req, res) {
     },
   );
 
-  res.cookies("token", token);
+  res.cookie("token", token);
 
   res.status(201).json({
     message: "user registered successfully",
@@ -53,6 +53,68 @@ async function registerController(req, res) {
   });
 }
 
+async function loginController(req, res) {
+  const { username, email, password } = req.body;
+
+  const user = await userModel.findOne({
+    $or: [{ username: username }, { email: email }],
+  });
+
+  if (!user) {
+    return res.status(404).json({
+      message: "User not found",
+    });
+  }
+
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  if (!isPasswordValid) {
+    return res.status(404).json({
+      message: "password invalid",
+    });
+  }
+
+  const token = jwt.sign(
+    {
+      id: user._id,
+      username: user.username,
+    },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "1d",
+    },
+  );
+
+  res.cookie("token", token);
+
+  res.status(200).json({
+    message: "user loggedIn successfully",
+    user: {
+      username: user.username,
+      email: user.email,
+      bio: user.bio,
+      profileImage: user.profileImage,
+    },
+  });
+}
+
+async function getMeController(req, res) {
+  const userId = req.user.id;
+
+  const user = await userModel.findById(userId);
+
+  res.status(200).json({
+    user: {
+      username: user.username,
+      email: user.email,
+      bio: user.bio,
+      profileImage: user.profileImage,
+    },
+  });
+}
+
 module.exports = {
   registerController,
+  loginController,
+  getMeController,
 };

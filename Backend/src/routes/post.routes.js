@@ -12,4 +12,5 @@ postRouter.post(
   postController.createPostController,
 );
 
+postRouter.get("/", identifyUser, postController.getPostController);
 module.exports = postRouter;

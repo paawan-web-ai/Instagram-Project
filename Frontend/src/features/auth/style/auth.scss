@@ -1,0 +1,292 @@
+main {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  display: flex;
+  gap: 2px;
+
+  .login-left {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    .login-insta-icon {
+      img {
+        width: 70px;
+      }
+    }
+
+    .left-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+
+      h2 {
+        width: 600px;
+        font-size: 35px;
+        text-align: center;
+        line-height: 1.4;
+        font-weight: lighter;
+        span {
+          background: linear-gradient(
+            45deg,
+            #feda75,
+            #fa7e1e,
+            #d62976,
+            #962fbf,
+            #4f5bd5
+          );
+
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+      img {
+        width: 400px;
+      }
+    }
+  }
+
+  .login-right {
+    width: 40%;
+    height: 100%;
+    padding: 30px;
+    background-color: rgb(34, 33, 33);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+    .upper-content {
+      margin-top: 90px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      h2 {
+        font-size: 40px;
+        font-weight: 200;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 460px;
+        gap: 10px;
+
+        input {
+          padding: 15px 20px;
+          border-radius: 10px;
+          background-color: transparent;
+          border: 1px solid white;
+          color: white;
+          font-size: 17px;
+          font-weight: 600;
+        }
+
+        .button-submit {
+          display: flex;
+          flex-direction: column;
+          margin-top: 10px;
+          gap: 10px;
+
+          .login {
+            color: white;
+            padding: 10px 20px;
+            background-color: rgb(0, 100, 224);
+            border: none;
+            border-radius: 20px;
+            font-size: 15px;
+          }
+        }
+        .forget-password {
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          font-size: 15px;
+          background-color: transparent;
+        }
+        .forget-password:hover {
+          background-color: rgb(57, 57, 57);
+        }
+      }
+    }
+    .bottom-content {
+      width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+
+      .fb-login {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .login-with-fb {
+          color: white;
+          padding: 10px 20px;
+          background-color: rgb(57, 57, 57);
+          border: none;
+          border-radius: 20px;
+          font-size: 15px;
+        }
+        .login-with-fb:hover {
+          background-color: rgb(80, 80, 80);
+        }
+        .create-account {
+          padding: 10px 20px;
+          color: rgb(4, 117, 255);
+          border: 1px solid rgb(4, 117, 255);
+          border-radius: 20px;
+          font-size: 15px;
+          background-color: transparent;
+        }
+        .create-account:hover {
+          background-color: rgb(80, 80, 80);
+        }
+      }
+      img {
+        width: 100px;
+      }
+    }
+    button {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 1263px) {
+  main {
+    position: relative;
+    display: block;
+    min-height: 100dvh;
+    height: auto;
+    width: 100%;
+    background-color: rgb(34, 33, 33);
+
+    .login-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      height: auto;
+      padding: 20px;
+      background-color: transparent;
+
+      .login-insta-icon {
+        display: block;
+
+        img {
+          width: clamp(30px, 4vw, 100px);
+        }
+      }
+
+      .left-content {
+        display: none;
+      }
+    }
+
+    .login-right {
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 100dvh;
+      height: auto;
+      padding: clamp(24px, 6vw, 48px) clamp(16px, 6vw, 30px);
+      gap: clamp(24px, 5vh, 40px);
+      justify-content: center;
+      align-items: center;
+
+      .upper-content,
+      .bottom-content {
+        box-sizing: border-box;
+        width: min(100%, 460px);
+      }
+
+      .upper-content {
+        margin-top: 0;
+        gap: clamp(16px, 3vh, 24px);
+
+        h2 {
+          margin: 0;
+          text-align: center;
+          font-size: clamp(28px, 8vw, 40px);
+        }
+
+        form {
+          width: 100%;
+
+          input {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 16px;
+            font-size: clamp(14px, 4vw, 17px);
+          }
+        }
+      }
+
+      .bottom-content {
+        gap: clamp(24px, 5vh, 40px);
+
+        .fb-login {
+          width: 100%;
+        }
+
+        img {
+          width: 80px;
+        }
+      }
+
+      button {
+        min-height: 44px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  main .login-right {
+    padding: 24px 16px;
+
+    .upper-content form input {
+      min-height: 46px;
+    }
+
+    .bottom-content img {
+      width: 64px;
+    }
+  }
+}
+
+@media (max-height: 650px) and (max-width: 1263px) {
+  main .login-right {
+    justify-content: flex-start;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

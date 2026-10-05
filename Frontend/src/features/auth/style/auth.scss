@@ -12,7 +12,7 @@ main {
     padding: 30px;
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: rgb(12, 16, 20);
     color: white;
     .login-insta-icon {
       img {
@@ -164,13 +164,15 @@ main {
           border-radius: 20px;
           font-size: 15px;
           background-color: transparent;
+          text-decoration: none;
+          text-align: center;
         }
         .create-account:hover {
           background-color: rgb(80, 80, 80);
         }
       }
       img {
-        width: 100px;
+        width: 70px;
       }
     }
     button {

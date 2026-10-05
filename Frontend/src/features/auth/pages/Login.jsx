@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../style/auth.scss";
 const Login = () => {
   return (
@@ -37,7 +38,9 @@ const Login = () => {
               </span>
               Log in with Facebook{" "}
             </button>
-            <button className="create-account">Create new accound</button>
+            <Link to="/register" className="create-account">
+              Create new account
+            </Link>
           </div>
           <img src="\src\assets\auth assests\meta.webp" alt="" />
         </div>

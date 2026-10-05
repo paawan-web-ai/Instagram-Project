@@ -28,7 +28,15 @@ const Login = () => {
         </div>
         <div className="bottom-content">
           <div className="fb-login">
-            <button className="login-with-fb">Log in with Facebook </button>
+            <button className="login-with-fb">
+              <span>
+                <img
+                  src="\src\assets\auth assests\login-with-facebook.webp"
+                  alt=""
+                />
+              </span>
+              Log in with Facebook{" "}
+            </button>
             <button className="create-account">Create new accound</button>
           </div>
           <img src="\src\assets\auth assests\meta.webp" alt="" />

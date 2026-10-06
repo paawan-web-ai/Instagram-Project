@@ -1,6 +1,7 @@
 import React from "react";
 import "../style/auth.scss";
 import { Link } from "react-router-dom";
+
 const Register = () => {
   return (
     <main className="register">

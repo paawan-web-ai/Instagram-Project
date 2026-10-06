@@ -1,7 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../style/auth.scss";
+import { useAuth } from "../hooks/useAuth";
+
 const Login = () => {
+  const { user, loading, handleLogin } = useAuth();
+
+  const [identifier, setidentifier] = useState("");
+  const [password, setpassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await handleLogin(identifier, password);
+
+    // console.log("user LoggedIN");
+
+    navigate("/");
+  };
+
+  if (loading) {
+    return (
+      <main className="loading">
+        <h1>Loading...</h1>
+      </main>
+    );
+  }
   return (
     <main>
       <div className="login-left">
@@ -18,9 +44,23 @@ const Login = () => {
       <div className="login-right">
         <div className="upper-content">
           <h2>Login</h2>
-          <form action="">
-            <input type="text" placeholder="username or email" />
-            <input type="password" placeholder="Password" />
+          <form onSubmit={handleSubmit}>
+            <input
+              value={identifier}
+              onInput={(e) => {
+                setidentifier(e.target.value);
+              }}
+              type="text"
+              placeholder="username or email"
+            />
+            <input
+              value={password}
+              onInput={(e) => {
+                setpassword(e.target.value);
+              }}
+              type="password"
+              placeholder="Password"
+            />
             <div className="button-submit">
               <button className="login">Log in</button>
               <button className="forget-password">Forget password</button>

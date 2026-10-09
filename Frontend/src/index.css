@@ -13,8 +13,11 @@ body,
 
 body {
   font-family: Arial, sans-serif;
+  background-color: black;
 }
 
 .loading {
   color: white;
+  min-height: 100vh;
+  background-color: black;
 }

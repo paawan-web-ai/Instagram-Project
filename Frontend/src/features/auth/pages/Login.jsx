@@ -18,7 +18,7 @@ const Login = () => {
 
     // console.log("user LoggedIN");
 
-    navigate("/");
+    navigate("/home");
   };
 
   if (loading) {

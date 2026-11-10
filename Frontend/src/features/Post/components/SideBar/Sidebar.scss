@@ -25,6 +25,14 @@
     align-items: flex-start;
   }
 
+  a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
   .icon-top,
   .sidebar-icon {
     width: 48px;

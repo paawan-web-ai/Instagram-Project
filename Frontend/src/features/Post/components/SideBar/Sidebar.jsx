@@ -1,5 +1,6 @@
 import React from "react";
 import "./Sidebar.scss";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -43,6 +44,14 @@ const Sidebar = () => {
 
           <span className="tooltip-text">Notifications</span>
         </div>
+
+        <Link to="/create-post">
+          <div className="sidebar-icon tooltip">
+            {" "}
+            <i class="ri-add-box-line"></i>
+            <span className="tooltip-text">Post</span>
+          </div>
+        </Link>
       </div>
     </aside>
   );

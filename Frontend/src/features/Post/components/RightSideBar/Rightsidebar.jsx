@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./RightSideBar.scss";
+import axios from "axios";
+import { register } from "../../../auth/services/auth.api";
 
 const suggestions = [
   {
@@ -20,11 +22,31 @@ const suggestions = [
 ];
 
 const Rightsidebar = () => {
+  const [user, setuser] = useState("");
+  const getProfile = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:3000/api/auth/get-me",
+        {
+          withCredentials: true,
+        },
+      );
+
+      // console.log(response.data.user);
+      setuser(response.data.user);
+    } catch (error) {
+      console.error("Failed to fetch profile", error);
+      return null;
+    }
+  };
+  useEffect(() => {
+    getProfile();
+  }, []);
   return (
     <aside className="right-sidebar">
       <div className="user-profile">
-        <img src="https://via.placeholder.com/60" alt="" />
-        <strong>Username</strong>
+        <img src={user.profileImage} alt="" />
+        <strong>{user.username}</strong>
       </div>
 
       <div className="suggestions">

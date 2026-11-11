@@ -31,9 +31,11 @@ async function createPostController(req, res) {
 async function getPostController(req, res) {
   const userId = req.user.id;
 
-  const posts = await postModel.find({
-    user: userId,
-  });
+  const posts = await postModel
+    .find({
+      user: userId,
+    })
+    .populate("user", { username: 1, profileImage: 1 });
 
   res.status(200).json({
     message: "Post fetched successfully",
